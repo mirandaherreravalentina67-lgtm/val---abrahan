@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentina & Abrahan | Nuestro pequeño universo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+--sky:#a9d9f5;
+--blue:#315b85;
+--silver:#e8edf4;
+--dark:#183654;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+margin:0;
+color:var(--dark);
+font-family:'Poppins',sans-serif;
+background:linear-gradient(145deg,#d9efff,#a9d9f5,#edf3fa,#8ebce0);
+background-attachment:fixed;
+overflow-x:hidden;
+}
+body:before{
+content:"";
+position:fixed;inset:0;pointer-events:none;z-index:0;
+background-image:radial-gradient(white 1px,transparent 1.5px);
+background-size:45px 45px;
+opacity:.38;
+}
+section,.hero{position:relative;z-index:1}
+.hero{
+min-height:100vh;display:flex;flex-direction:column;
+align-items:center;justify-content:center;text-align:center;
+padding:35px 20px;
+}
+.eyebrow{letter-spacing:4px;text-transform:uppercase;font-size:12px}
+.script{font-family:'Great Vibes',cursive}
+.hero h1{
+font-family:'Great Vibes',cursive;font-size:clamp(65px,14vw,115px);
+font-weight:400;color:#fff;text-shadow:0 3px 18px #5d8eb5;
+margin:12px 0;
+}
+.hero h2{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:500}
+.hero p{max-width:500px;line-height:1.9}
+button{
+border:1px solid #fff;background:linear-gradient(120deg,#315b85,#8bbce1);
+color:white;padding:13px 25px;border-radius:30px;
+font-family:inherit;font-size:14px;cursor:pointer;
+box-shadow:0 5px 18px #527da755;transition:.3s;
+}
+button:hover{transform:translateY(-3px);box-shadow:0 8px 25px #527da777}
+section{
+max-width:850px;margin:35px auto;padding:55px 22px;
+text-align:center;
+}
+.panel{
+background:#ffffffbd;border:1px solid #ffffff;
+border-radius:25px;padding:30px 24px;
+box-shadow:0 12px 35px #315b8520;
+backdrop-filter:blur(8px);
+}
+h2.section-title{
+font-family:'Cormorant Garamond',serif;font-size:clamp(34px,8vw,48px);
+color:#315b85;font-weight:600;margin:0 0 22px;
+}
+h3{font-family:'Cormorant Garamond',serif;font-size:27px}
+p{line-height:1.95}
+.divider{color:#739fc5;font-size:25px;margin:25px}
+.counter{
+display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:25px 0;
+}
+.time{
+min-width:90px;padding:16px 10px;border-radius:15px;
+background:linear-gradient(145deg,#fff,#dcecf8);
+box-shadow:0 4px 15px #315b8520;
+}
+.time strong{display:block;font-size:28px;color:#315b85}
+.time span{font-size:11px;letter-spacing:1px}
+.envelope{
+width:min(280px,80vw);height:180px;margin:25px auto;
+background:linear-gradient(145deg,#b9d9f1,#719fc8);
+position:relative;border-radius:8px;cursor:pointer;
+display:flex;align-items:center;justify-content:center;
+color:white;font-size:42px;box-shadow:0 8px 22px #315b8540;
+}
+.envelope:before{
+content:"";position:absolute;inset:0;
+background:linear-gradient(145deg,transparent 49%,#d8e9f7 50%,transparent 51%);
+}
+.envelope span{position:relative;z-index:2}
+.hidden{display:none}
+.letter{
+text-align:left;line-height:2;background:#fff;
+padding:25px;border-radius:15px;margin-top:20px;
+}
+.letter .question{
+text-align:center;font-family:'Great Vibes',cursive;
+font-size:clamp(35px,8vw,52px);color:#679bc7;
+margin-top:30px;text-shadow:0 0 12px #a9d9f5;
+}
+.gallery{
+display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;
+margin-top:25px;
+}
+.gallery img{
+width:100%;height:240px;object-fit:cover;border-radius:15px;
+border:4px solid white;box-shadow:0 5px 18px #315b8525;
+}
+@media(max-width:480px){.gallery img{height:175px}}
+.quote{
+font-family:'Cormorant Garamond',serif;font-size:24px;
+font-style:italic;color:#315b85;line-height:1.7;
+margin:30px auto;max-width:650px;
+}
+.message{
+margin-top:22px;padding:23px;border-radius:18px;
+background:#fff;line-height:2;text-align:left;
+}
+.final{
+min-height:75vh;display:flex;flex-direction:column;
+justify-content:center;align-items:center;
+}
+.final h2{
+font-family:'Great Vibes',cursive;font-size:clamp(65px,15vw,115px);
+color:white;text-shadow:0 0 12px #fff,0 0 30px #5486b2;
+}
+#qrcode{max-width:220px;width:100%;margin:20px auto;border:8px solid white}
+footer{padding:30px;text-align:center;position:relative;z-index:1}
+.petalo{
+position:fixed;top:-30px;z-index:5;pointer-events:none;
+color:#fff;font-size:17px;animation:caer 9s linear forwards;
+}
+@keyframes caer{
+to{transform:translateY(110vh) rotate(500deg);opacity:0}
+}
+.spark{
+position:fixed;pointer-events:none;color:white;z-index:10;
+animation:brillar .9s forwards;
+}
+@keyframes brillar{
+0%{opacity:1;transform:scale(.5)}
+100%{opacity:0;transform:scale(2) translateY(-20px)}
+}
+</style>
+</head>
+<body>
+
+<header class="hero" id="inicio">
+<div class="eyebrow">Un regalo hecho con amor</div>
+<h2>Este hermoso regalo es para</h2>
+<h1>Abrahan</h1>
+<h2>De Valentina</h2>
+<p>Espero que te guste, mi amor. Lo hice con mucho amor para ti. 🩵</p>
+<button onclick="document.getElementById('bienvenida').scrollIntoView()">Descubre nuestro universo ✨</button>
+</header>
+
+<section id="bienvenida">
+<div class="panel">
+<h2 class="section-title">Bienvenido a nuestro pequeño universo</h2>
+<p>Mi amor, si estás leyendo esto, quiero que por un momento dejes a un lado todo lo que te preocupa y recuerdes algo: eres profundamente amado.</p>
+<p>Quizás hoy no estemos viviendo nuestra mejor etapa, quizás existan días difíciles, dudas o momentos en los que todo parezca ir más lento de lo que soñamos. Pero nuestra historia no se resume en los días difíciles. También está hecha de amor, de esperanza, de fe y de todas esas razones por las que seguimos creyendo en lo que un día soñamos juntos.</p>
+<p>Yo no sé cuándo cambiarán las cosas, pero tengo fe en Dios y en que todavía nos esperan momentos hermosos. Mientras tanto, quería regalarte algo diferente: un pedacito de mi corazón convertido en esta página, para que puedas volver aquí y recordar lo mucho que significas para mí.</p>
+<p><strong>Bienvenido a nuestro pequeño universo motito.</strong></p>
+<p>Todo lo que encontrarás aquí lo preparé pensando en ti, con amor, ilusión y el deseo de verte sonreír.</p>
+<p><strong>Con amor, tu Negrita.</strong></p>
+</div>
+</section>
+
+<section>
+<div class="panel">
+<h2 class="section-title">Nuestro tiempo juntos</h2>
+<p><strong>Desde el 2 de febrero de 2025</strong></p>
+<div class="counter">
+<div class="time"><strong id="days">0</strong><span>DÍAS</span></div>
+<div class="time"><strong id="hours">0</strong><span>HORAS</span></div>
+<div class="time"><strong id="minutes">0</strong><span>MINUTOS</span></div>
+<div class="time"><strong id="seconds">0</strong><span>SEGUNDOS</span></div>
+</div>
+<p class="quote">«Cada segundo a tu lado forma parte de una historia que todavía quiero seguir escribiendo contigo».</p>
+</div>
+</section>
+
+<section>
+<div class="panel">
+<h2 class="section-title">Un mensaje para ti 💌</h2>
+<p>Toca el sobre para descubrir tu carta.</p>
+<div class="envelope" onclick="document.getElementById('carta').classList.toggle('hidden')">
+<span>💌</span>
+</div>
+<div id="carta" class="letter hidden">
+<h3 style="text-align:center">Para mi amor</h3>
+<p>Hoy celebramos todo lo que hemos vivido, pero, sobre todo, todo lo que aún nos queda por vivir.</p>
+<p>Porque si llegar hasta aquí ha sido tan bonito, no puedo imaginar lo increible que será seguir escribiendo esta historia a tu lado.</p>
+<div class="question">¿Te gustaría seguir escribiendo nuestra historia?</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="panel">
+<h2 class="section-title">Pequeñas promesas 🩵</h2>
+<p class="quote">«Si algún día el camino se hace difícil, recuerda que no tienes que recorrerlo sintiéndote solo».</p>
+<div class="divider">✧</div>
+<p class="quote">«Quiero seguir coleccionando momentos contigo, incluso los más pequeños, porque contigo también quiero quedarme en lo cotidiano».</p>
+<div class="divider">✧</div>
+<p class="quote">«No sé todo lo que nos espera, pero todavía tengo ilusión por descubrirlo contigo».</p>
+<h2 class="script" style="font-size:55px;color:#679bc7">Mateo 19:6 🩵</h2>
+<p class="quote">Nunca tendrás que enfrentar tus días difíciles sintiéndote solo. Adonde quieras que vayas, deseo acompañarte; si corres, correré a tu lado; si luchas, estaré contigo.</p>
+</div>
+</section>
+
+<section>
+<div class="panel">
+<h2 class="section-title">Nuestra galería de recuerdos 📸</h2>
+<p class="quote">«Cada fotografía guarda un pedacito de nuestra historia, momentos que mi corazón quisiera volver a vivir una y mil veces».</p>
+<div class="gallery">
+<img src="IMG-20260109-WA0076.jpg" alt="Nuestro recuerdo">
+<img src="IMG-20260126-WA0101.jpg" alt="Nuestro recuerdo">
+<img src="IMG-20260202-WA0180.jpg" alt="Nuestro recuerdo">
+<img src="IMG-20260603-WA0028.jpg" alt="Nuestro recuerdo">
+<img src="motion_photo_1901332598674015932.jpg" alt="Nuestro recuerdo">
+<img src="motion_photo_460270215024883715.jpg" alt="Nuestro recuerdo">
+<img src="motion_photo_7477904632760126100.jpg" alt="Nuestro recuerdo">
+<img src="motion_photo_769948393262526448.jpg" alt="Nuestro recuerdo">
+<img src="motion_photo_8065402148045678116.jpg" alt="Nuestro recuerdo">
+<img src="motion_photo_9068903529863178879.jpg" alt="Nuestro recuerdo">
+</div>
+
+
+<section>
+<div class="panel">
+<h2 class="section-title">Nuestra canción 🎶</h2>
+<p class="quote">«Hay canciones que no necesitan explicar nada, porque desde que las escucho me recuerdan a ti, a nosotros y a todo lo bonito que todavía sueño vivir contigo».</p>
+<iframe width="100%" height="220"
+src="https://www.youtube.com/embed/HHjCYxp07aY"
+title="Nuestra canción" frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen style="border-radius:15px">
+</iframe>
+<p><a href="https://youtu.be/HHjCYxp07aY?si=XMbdc6x-lDKErptZ" target="_blank">Escuchar nuestra canción</a></p>
+</div>
+</section>
+
+<section>
+<div class="panel">
+<h2 class="section-title">¿Por qué te amo?</h2>
+<button onclick="document.getElementById('razones').classList.toggle('hidden')">Descubre por qué te amo 💙</button>
+<div id="razones" class="message hidden">
+<p>Te amo porque eres tú, porque incluso con tus imperfecciones tienes una manera única de hacerte especial en mi vida.</p>
+<p>Te amo por tu forma de ser, por los momentos que hemos compartido, por las sonrisas que me has regalado y por cada recuerdo que se ha quedado guardado en mi corazón.</p>
+<p>Te amo porque no necesito que todo sea perfecto para elegirte. Porque quiero conocerte en todas tus versiones, acompañarte en tus días buenos y también en aquellos en los que todo parece difícil.</p>
+<p>Te amo porque, entre tantas personas en el mundo, mi corazón encontró en ti a alguien con quien quiere seguir escribiendo una historia.</p>
+<p><strong>Y si algún día me preguntas por qué te sigo eligiendo, mi respuesta será sencilla: porque eres tú, mi amor, y porque todavía tengo muchos sueños que quiero cumplir a tu lado. 🩵</strong></p>
+</div>
+</div>
+</section>
+
+<section>
+<div class="panel">
+<h2 class="section-title">Una pequeña sorpresa ✨</h2>
+<p>Hay algo que nunca quiero que olvides, mi amor...</p>
+<button onclick="document.getElementById('secreto').classList.toggle('hidden')">Toca aquí, mi amor 💙</button>
+<div id="secreto" class="message hidden">
+<p><strong>Hay algo que nunca quiero que olvides, mi amor...</strong></p>
+<p>Nunca dudes de lo importante que eres para mí. No importa cuántos días difíciles lleguen, ni cuántas cosas tengamos que enfrentar: tu lugar en mi corazón es muy especial.</p>
+<p>Quiero que recuerdes que no tienes que ser perfecto para ser amado, que no tienes que tener todas las respuestas y que también mereces días bonitos, tranquilidad y felicidad.</p>
+<p>Si alguna vez dudas de cuánto significas para mí, vuelve a este pequeño universo y recuerda que aquí hay una parte de mi corazón que siempre llevará tu nombre.</p>
+<p><strong>Te amo, mi amor. Nunca olvides que eres alguien muy especial para mí. 🩵</strong></p>
+</div>
+</div>
+</section>
+
+<section>
+<div class="panel">
+<h2 class="section-title">Nuestro futuro juntos 💍</h2>
+<h3>Y si la vida nos permite cumplir nuestros sueños…</h3>
+<p>Espero siempre seguir siendo esa mujer con la que te ilusiones al imaginar el futuro. Esa con la que sueñes casarte, formar un hogar, construir una familia y disfrutar de cada bendición que Dios tenga preparada para nosotros.</p>
+<p>Espero que algún día podamos mirar atrás y sentir orgullo de todo lo que superamos para llegar hasta ese hogar que tanto soñamos. Que tengamos nuestras propias metas, nuestros pequeños logros, nuestras alegrías y la tranquilidad de saber que estamos construyendo algo juntos.</p>
+<p>No quiero ser solamente parte de tu presente; quiero seguir siendo parte de tus planes, de tus sueños y de ese futuro que tantas veces hemos imaginado.</p>
+<p class="quote"><strong>Ojalá que, cuando pienses en tu mañana, todavía me encuentres a mí, tomada de tu mano. 🩵</strong></p>
+</div>
+</section>
+
+<section>
+<div class="panel">
+<h2 class="section-title">Un recuerdo para compartir</h2>
+<p class="quote">«Un pequeño universo creado con amor, convertido en un recuerdo al que siempre podremos volver. Porque hay historias que merecen quedarse para siempre».</p>
+<p>Escanea este código para volver a nuestro pequeño universo:</p>
+<img id="qrcode" alt="Código QR de nuestra página">
+<p style="font-size:12px">Este código llevará a la dirección pública de esta página.</p>
+</div>
+</section>
+
+<section class="final">
+<p class="eyebrow">Y recuerda siempre...</p>
+<h2>TE AMO</h2>
+<h3>MI AMOR 🩵</h3>
+<p class="quote">Ojalá que, cuando pienses en tu mañana, todavía me encuentres a mí, tomada de tu mano.</p>
+<p class="script" style="font-size:48px">Con amor, tu Negrita.</p>
+<button onclick="window.scrollTo({top:0,behavior:'smooth'})">Volver al principio ↑</button>
+</section>
+
+<footer>Hecho con mucho amor por Valentina 🩵</footer>
+
+<script>
+const inicio = new Date(2025, 1, 2, 0, 0, 0);
+
+function actualizarContador(){
+let diferencia = Math.max(0, new Date() - inicio);
+const segundo = 1000, minuto = segundo60, hora = minuto60, dia = hora*24;
+document.getElementById('days').textContent = Math.floor(diferencia/dia);
+document.getElementById('hours').textContent = Math.floor((diferencia%dia)/hora);
+document.getElementById('minutes').textContent = Math.floor((diferencia%hora)/minuto);
+document.getElementById('seconds').textContent = Math.floor((diferencia%minuto)/segundo);
+}
+actualizarContador();
+setInterval(actualizarContador,1000);
+
+document.getElementById('qrcode').src =
+'https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=' +
+encodeURIComponent(window.location.href);
+
+setInterval(()=>{
+const petalo=document.createElement('div');
+petalo.className='petalo';
+petalo.textContent=['✧','❀','✦','♡'][Math.floor(Math.random()*4)];
+petalo.style.left=Math.random()*100+'vw';
+petalo.style.animationDuration=(7+Math.random()*5)+'s';
+document.body.appendChild(petalo);
+setTimeout(()=>petalo.remove(),12000);
+},850);
+
+document.addEventListener('click',e=>{
+const brillo=document.createElement('div');
+brillo.className='spark';
+brillo.textContent='✧';
+brillo.style.left=e.clientX+'px';
+brillo.style.top=e.clientY+'px';
+document.body.appendChild(brillo);
+setTimeout(()=>brillo.remove(),950);
+});
+</script>
+</body>
+</html>
